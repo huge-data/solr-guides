@@ -23,12 +23,14 @@ import org.slf4j.LoggerFactory;
 import solr.in.action.ExampleDriver;
 
 /**
- * Command-line utility for creating backups using Solr replication handler
- * on each shard leader in the cluster. This application issues the backups
- * and then blocks until all backups are completed on each shard leader, typically
- * about 5-10 minutes. Once the backup completes, you can move the backup files
- * outside of the data center, such as S3. This process is for disaster recovery
- * vs. day-to-day operations.
+ * 命令行工具类
+ * 在集群中的每个分片leader上，使用Solr复制句柄创建备份。
+ * 该应用发行备份，在每个分片leader上的所有备份完成前都是阻塞状态，通常阻塞时间是5-10分钟。
+ * 一旦备份完成，就可以将备份文件移到数据中心外面，如S3服务。
+ * 该过程是为了灾难恢复和日常运维。
+ *
+ * @author wanggang
+ *
  */
 public class BackupDriver extends ExampleDriver.SolrJClientExample {
 

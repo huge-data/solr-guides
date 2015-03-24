@@ -15,12 +15,6 @@ import org.apache.solr.schema.TextField;
 
 import solr.in.action.ch14.MultiTextFieldSettings.AnalyzerModes;
 
-/**
- * 
- * This field exist purely to expose the schema with defined
- * field types from the schema to the MultiTextAnalyzer.
- *
- */
 public class MultiTextField extends TextField {
 
 	private final static String FIELD_MAPPINGS = "fieldMappings";

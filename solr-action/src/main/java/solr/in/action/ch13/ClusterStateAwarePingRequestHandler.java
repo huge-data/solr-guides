@@ -15,7 +15,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Extends Solr's PingRequestHandler to check a replica's cluster status as part of the health check.
+ * 扩展Solr的PingRequestHandler句柄类来校验复制集群的状态信息，作为集群状态校验的一部分。
+ *
+ * @author wanggang
+ *
  */
 public class ClusterStateAwarePingRequestHandler extends PingRequestHandler {
 

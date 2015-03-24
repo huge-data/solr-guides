@@ -1,4 +1,4 @@
-package solr.in.action.ch5;
+package solr.in.action.ch05;
 
 import java.util.Random;
 
@@ -12,7 +12,10 @@ import org.apache.solr.common.SolrInputDocument;
 import solr.in.action.ExampleDriver;
 
 /**
- * Fill a Solr index with test documents for learning about precision step.
+ * 用测试文档来构建索引，学习精确查询
+ *
+ * @author wanggang
+ *
  */
 public class PrecisionStepBenchmark extends ExampleDriver.SolrJClientExample {
 

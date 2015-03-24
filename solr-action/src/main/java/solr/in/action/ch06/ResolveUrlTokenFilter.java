@@ -1,4 +1,4 @@
-package solr.in.action.ch6;
+package solr.in.action.ch06;
 
 import java.io.IOException;
 import java.util.regex.Pattern;

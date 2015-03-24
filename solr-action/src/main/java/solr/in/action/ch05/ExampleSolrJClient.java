@@ -1,4 +1,4 @@
-package solr.in.action.ch5;
+package solr.in.action.ch05;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -17,7 +17,10 @@ import org.apache.solr.common.SolrInputDocument;
 import solr.in.action.ExampleDriver;
 
 /**
- * Minimal example client to index documents using SolrJ version 4.x+
+ * 基于Solrj 4.x+版本的文档索引客户端示例
+ *
+ * @author wanggang
+ *
  */
 public class ExampleSolrJClient extends ExampleDriver.SolrJClientExample {
 

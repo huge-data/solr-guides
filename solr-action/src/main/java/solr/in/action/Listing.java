@@ -16,20 +16,22 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.solr.client.solrj.impl.HttpSolrServer;
 
 /**
- * Simple utility for executing HTTP requests from a
- * Solr In Action listing against your local Solr server.
+ * 针对本地Solr服务器，执行书中列表中HTTP请求的简单工具
+ *
+ * @author wanggang
+ *
  */
 public class Listing implements ExampleDriver.Example {
 
 	static final Map<String, Object> listings = new HashMap<>();
 
 	static {
-		// chapter 2: Getting to know Solr
+		// chapter 2: 了解Solr
 		listings.put(
 				"2.1",
 				"/collection1/select?q=iPod&fq=manu%3ABelkin&sort=price+asc&fl=name%2Cprice%2Cfeatures%2Cscore&df=text&wt=xml&start=0&rows=10");
 
-		// chapter 4: Configuring Solr
+		// chapter 4: 配置Solr
 		listings.put(
 				"4.4",
 				"/collection1/select?q=iPod&fq=manu%3ABelkin&sort=price+asc&fl=name%2Cprice%2Cfeatures%2Cscore&df=text&wt=xml&start=0&rows=10");
@@ -40,7 +42,7 @@ public class Listing implements ExampleDriver.Example {
 				"4.12",
 				"/collection1/select?q=iPod&fq=manu%3ABelkin&sort=price+asc&fl=name%2Cprice%2Cfeatures%2Cscore&df=text&wt=xml&start=0&rows=10");
 
-		//chapter 8: Faceted Search
+		//chapter 8: 分类统计搜索
 		listings.put("8.3", "/restaurants/select?q=*:*&rows=0&facet=true&facet.field=name");
 		listings.put("8.4", "/restaurants/select?q=*:*&facet=true&facet.field=tags");
 		listings.put(
@@ -90,7 +92,7 @@ public class Listing implements ExampleDriver.Example {
 				"8.16",
 				"/restaurants/select?q=*:*&facet=true&facet.mincount=1&facet.field=%7B!ex=tagForState%7Dstate&facet.field=%7B!ex=tagForCity%7Dcity&facet.query=%7B!ex=tagForPrice%7Dprice:[*%20TO%205%7D&facet.query=%7B!ex=tagForPrice%7Dprice:[5%20TO%2010%7D&facet.query=%7B!ex=tagForPrice%7Dprice:[10%20TO%2020%7D&facet.query=%7B!ex=tagForPrice%7Dprice:[20%20TO%2050%7D&facet.query=%7B!ex=tagForPrice%7Dprice:[50%20TO%20*]&fq=%7B!tag=%22tagForState%22%7Dstate:California");
 
-		// chapter 9: Hit Highlighting
+		// chapter 9: 高亮显示
 		listings.put("9.1", "/ufo/select?q=blue+fireball+in+the+rain&df=sighting_en&wt=xml&rows=10&hl=true");
 		listings.put("9.2", "/ufo/select?q=blue+fireball+in+the+rain&df=sighting_en&wt=xml&hl=true&hl.snippets=2");
 		listings.put("9.4",
@@ -104,7 +106,7 @@ public class Listing implements ExampleDriver.Example {
 		listings.put("9.7",
 				"/ufo/select?q=blue+fireball+in+the+rain&df=sighting_en&wt=xml&hl=true&hl.snippets=2&hl.useFastVectorHighlighter=true");
 
-		// chapter 10: Query Suggestions
+		// chapter 10: 查询建议或搜索提示
 		listings.put("10.1", "/solrpedia/select?q=atmosphear");
 		listings.put("10.2", "/solrpedia/select?q=title:anaconda");
 		listings.put("10.3", "/solrpedia/select?q=Julius&df=suggest&fl=title");
@@ -119,7 +121,7 @@ public class Listing implements ExampleDriver.Example {
 				"10.16",
 				"/solrpedia_instant/select?q=%7B!boost+b%3D%24recency+v%3D%24qq%7D&sort=score%20desc&rows=1&wt=json&qq=query_ngram:willia&recency=product(recip(ms(NOW/HOUR,last_executed_on),1.27E-10,0.08,0.05),popularity)");
 
-		// chapter 11: Result grouping/field collapsing
+		// chapter 11: 查询结果组合或按域拆分折叠
 		listings.put("11.2", "/ecommerce/select?fl=id%2Cproduct%2Cformat&sort=popularity%20asc&q=spider-man");
 		listings.put(
 				"11.3",
@@ -146,13 +148,13 @@ public class Listing implements ExampleDriver.Example {
 				"11.10",
 				"/ecommerce/select?fl=product&group=true&sort=popularity%20asc&q=*%3A*&facet=true&facet.mincount=1&group.format=simple&fq=type%3AMovies&facet.field=type&group.field=product&group.facet=true");
 
-		// chapter 13: SolrCloud
+		// chapter 13: SolrCloud分布式
 		listings.put(
 				"13.6",
 				"/admin/collections?action=CREATE&name=support&numShards=1&replicationFactor=2&maxShardsPerNode=1&collection.configName=support");
 		listings.put("13.7", "/admin/collections?action=CREATEALIAS&name=logmill-write&collections=logmill");
 
-		// chapter 14: Multilingual Search
+		// chapter 14: 多语言搜索
 		listings.put(
 				"14.4",
 				"/field-per-language/select?fl=title&defType=edismax&qf=content_english%20content_french%20content_spanish&q=%22he%20told%20the%20truth%22%20OR%20%22il%20%C3%A9tait%20pr%C3%AAtre%22%20OR%20%22ver%20la%20vida%20como%20es%22");
@@ -188,7 +190,7 @@ public class Listing implements ExampleDriver.Example {
 				"15.9",
 				"/pivotfaceting/select?q=*:*&fq=rating:[4%20TO%205]&facet=true&facet.limit=3&facet.pivot.mincount=1&facet.pivot=state,city,rating");
 
-		// chapter 16: Mastering Relevancy
+		// chapter 16: 掌握相关度评分
 		listings.put("16.1",
 				"/no-title-boost/select?defType=edismax&q=red%20lobster&qf=restaurant_name%20description&debug=true");
 		listings.put(

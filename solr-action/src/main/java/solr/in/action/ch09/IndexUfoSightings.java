@@ -1,4 +1,4 @@
-package solr.in.action.ch9;
+package solr.in.action.ch09;
 
 import java.io.BufferedReader;
 import java.text.ParseException;
@@ -21,7 +21,10 @@ import org.slf4j.LoggerFactory;
 import solr.in.action.ExampleDriver;
 
 /**
- * Index UFO sightings in Solr using SolrJ to learn about hit highlighting.
+ * 使用SolrJ索引“UFO目击者”，学习高亮显示操作
+ *
+ * @author wanggang
+ *
  */
 public class IndexUfoSightings extends ExampleDriver.SolrJClientExample {
 

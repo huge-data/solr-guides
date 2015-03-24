@@ -198,7 +198,7 @@ public class MultiTextFieldTokenizer extends Tokenizer {
 	/**
 	 * Takes each token from tokenizer, and adds it to a list of terms that appear
 	 * at that token's position in the input stream.
-	 * 
+	 *
 	 * @throws IOException
 	 */
 	private void addTokenStreamForFieldType(SortedMap<Integer, LinkedList<Token>> tokenHash, TokenStream tokenStream)

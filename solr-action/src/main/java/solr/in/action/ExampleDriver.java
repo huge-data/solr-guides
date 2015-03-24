@@ -42,7 +42,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Serves as a common framework for running Solr in Action examples.
+ * 通用驱动类
+ *
+ * @author wanggang
+ *
  */
 public class ExampleDriver {
 

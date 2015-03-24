@@ -21,7 +21,10 @@ import org.slf4j.LoggerFactory;
 import solr.in.action.ExampleDriver;
 
 /**
- * Index log messages into the logmill search index.
+ * 索引日志信息到logmill索引集合中
+ *
+ * @author wanggang
+ *
  */
 public class IndexLog extends ExampleDriver.SolrJClientExample {
 
@@ -141,7 +144,7 @@ public class IndexLog extends ExampleDriver.SolrJClientExample {
 	}
 
 	/**
-	 * Send a document to Solr for indexing with re-try support in case of communication exception. 
+	 * Send a document to Solr for indexing with re-try support in case of communication exception.
 	 */
 	protected void addDocWithRetry(CloudSolrServer solr, SolrInputDocument doc, int retryInSecs) throws Exception {
 		try {

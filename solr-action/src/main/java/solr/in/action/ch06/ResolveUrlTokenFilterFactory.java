@@ -1,4 +1,4 @@
-package solr.in.action.ch6;
+package solr.in.action.ch06;
 
 import java.util.Map;
 import java.util.regex.Pattern;
